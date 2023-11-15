@@ -9,3 +9,19 @@
 # Expose the correct port
 
 # Create an entrypoint
+
+FROM python:latest
+
+WORKDIR app
+
+COPY . .
+
+RUN pip install --upgrade pip
+
+RUN pip install -r requirements.txt
+
+ENV YOUR_NAME Paul
+
+EXPOSE 5500
+
+ENTRYPOINT ["python","app.py"]
