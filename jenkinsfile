@@ -14,7 +14,7 @@ pipeline {
             steps {
                 sh '''
                 docker push 52pbailey/task1
-                docker push 52pbailey/nginx
+                docker push 52pbailey/task1-nginx
                 '''
             }
 
