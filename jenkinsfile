@@ -23,6 +23,8 @@ pipeline {
             steps {
                 sh '''
                 ssh jenkins@paulb-deploy <<EOF
+                docker pull 52pbailey/task1
+                docker pull 52pbailey/task1-nginx
                 docker network rm task1-net && echo "removed network" || echo "network already removed"
                 docker network create task1-net
                 docker stop flask-app && echo "Stopped flask-app" || echo "flask-app is not running"
