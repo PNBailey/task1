@@ -10,7 +10,7 @@
 
 # Create an entrypoint
 
-FROM python:latest
+FROM python:3.6
 
 WORKDIR app
 
