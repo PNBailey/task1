@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    banana: nginx
+  name: flask-app
+  namespace: default
+spec:
+  containers:
+  - image: 52pbailey/task1
+    imagePullPolicy: IfNotPresent
+    name: flask-app
+    environment:
+      - name: YOUR_NAME
+        value: Paul

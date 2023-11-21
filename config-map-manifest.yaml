@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data: 
+  nginx.conf: |
+    "events {}
+     http {
+      server {
+        listen 80;
+          location / {
+            proxy_pass http://flask-app:5500; // This flask app refers to the name of the 'upstream' above. So when a request comes in, it will redirect to one of the servers (running containers) listed above. See Jenkins file for how this is setup.    
+          }
+      }
+    }"

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    banana: nginx
+  name: nginx
+  namespace: default
+spec:
+  volumes: 
+    - name: nginx-vol
+      configMap: 
+        name: nginx-config 
+  containers:
+  - image: 52pbailey/task1-nginx
+    imagePullPolicy: IfNotPresent
+    name: nginx
+    volumeMounts:
+    - name: nginx-vol
+      mountPath: /etc/nginx
+  
+   
