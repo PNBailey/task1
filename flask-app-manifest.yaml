@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    banana: nginx
+    clusterIP: cluster-ip-service
   name: flask-app
   namespace: default
 spec:

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    loadBalancer: load-balancer-service
+    clusterIP: cluster-ip-service
   name: flask-app
 spec:
   ports: 
