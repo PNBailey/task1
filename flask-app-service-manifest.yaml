@@ -6,10 +6,8 @@ metadata:
   name: flask-app
 spec:
   ports: 
-  - nodePort: 30260
-    port: 80
+  - port: 5500
     protocol: TCP
-    targetPort: 80
   selector:
-    loadBalancer: load-balancer-service
-  type: LoadBalancer
+    clusterIP: cluster-ip-service
+  type: ClusterIP

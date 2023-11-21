@@ -6,8 +6,10 @@ metadata:
   name: nginx-service2
 spec:
   ports: 
-    port: 80
+  - port: 80
+    protocol: TCP
+    targetPort: 80
   selector:
-    clusterIP: cluster-ip-service
-  type: ClusterIP
+    loadBalancer: load-balancer-service
+  type: LoadBalancer
      
