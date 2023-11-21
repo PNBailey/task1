@@ -10,6 +10,6 @@ spec:
   - image: 52pbailey/task1
     imagePullPolicy: IfNotPresent
     name: flask-app
-    environment:
+    env:
       - name: YOUR_NAME
         value: Paul
