@@ -11,8 +11,7 @@ spec:
       configMap: 
         name: nginx-config 
   containers:
-  - image: 52pbailey/task1-nginx
-    imagePullPolicy: IfNotPresent
+  - image: nginx:alpine
     name: nginx
     volumeMounts:
     - name: nginx-vol
