@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - image: 52pbailey/task1
-    imagePullPolicy: IfNotPresent
+    imagePullPolicy: Always
     name: flask-app
     env:
       - name: YOUR_NAME
