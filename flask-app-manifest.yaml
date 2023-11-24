@@ -1,15 +1,38 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  labels:
-    clusterIP: cluster-ip-service
-  name: flask-app
-  namespace: default
+  name: task1
 spec:
-  containers:
-  - image: 52pbailey/task1
-    imagePullPolicy: Always
-    name: flask-app
-    env:
-      - name: YOUR_NAME
-        value: Paul
+  replicas: 2
+  selector:
+    matchLabels:
+      app: task1-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 50%
+  template:
+    metadata:
+      labels:
+        app: task1-app
+    spec:
+      containers:
+      - image: 52pbailey/task1:v{{version}}
+        name: task1
+        env:
+          - name: YOUR_NAME
+            value: {{YOUR_NAME}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-app
+  labels:
+    app: task1-app
+spec:
+  type: ClusterIP
+  selector:
+    app: task1-app
+  ports:
+    - port: 5500
+      protocol: TCP
