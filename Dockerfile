@@ -20,7 +20,7 @@ RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 
-ENV YOUR_NAME Paul
+ENV YOUR_NAME="Paul"
 
 EXPOSE 5500
 
